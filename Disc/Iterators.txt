@@ -1,0 +1,104 @@
+Iterators
+a way to access the elements of lots of different containers. A container can provide an iterator 
+A container can provide an iterator that provides access to its elements in some order 
+
+iter(iterable): return an iterator over the elements of an iterable value 
+next(iterator): return the next element in an iterator 
+iterator is position in some sequence
+
+t = iter(s) 
+creat iterator over the contents of some container 
+
+we only get that values that are left, we already used up the list except 4, 5
+so when i build a list of a remaining contents and an iterator 
+
+Dictionary Iteration 
+
+an iterable value is any value that can be passed to iter to produce an iterator 
+
+an iterator is returned from iter and can be passed to next, all iterators are mutable 
+
+d['zero'] = 0 
+k = iter(d.keys()) # or iter(d)
+next(k) 
+v = iter(d.values())
+i = iter(d.items())
+next(i) # which returns tuple 
+
+so there are many ways to iterate over the contents of a dictionary, and the way that python is designed, there's only one dictionary, d. I can access different views of it by asking for the keys, values, or items. and i can get an iterator for any of those 
+
+if the dictionary changeds size, then i can't use any of iterators Ive constructed.instead i need to make new ones
+
+for statement 
+iterate over iterable values, they also iterate over iterator themselves 
+
+there's nothing left in the range iterator, iterate again it would show nothing cuz, we are already at the end of our i  
+
+if i use iterato in for statement, i can still go through all of the elements until i reach the end 
+but that will advance the iterator so that i can't use it again 
+
+Built-in Iterator Functions 
+take in one iterable value and give u back an iterator, compute results lazily 
+
+unless that value is going to be used 
+
+map(map, iterable): iterate over func for x in iterable 
+
+filter(func, iterable): iterate over x in iterable if func 
+
+zip(first it, second it): coindexed pairs 
+
+reversed(sequence): iterate over x in a sequence in reverse order 
+
+list, tuple, sorted 
+
+map(lambda x: x.upper(), bcd)
+m = map(lambda x：x.upper(), bcd)
+
+reversed(t) == t 
+False
+list(reversed(t))
+list(reversed(t)) == t 
+True 
+
+Generators
+returns from a generator function 
+yield 
+
+def evens(start, end):
+    even = start + (start %2)
+    while even < end:
+        yield even 
+        even += 2 
+
+generator function is a function that yields values instead of returning them 
+a normal function returns once a generator can yield multiple times 
+
+a generator is an iterator created automatically by calling a generator function 
+
+when a generator function is called, it returns a generator that iterates over its yields
+
+def countdown(k):
+    if k> 0:
+        yield k 
+    for x in countdown(k-1):
+        yield x 
+    or YIELD FROM COUNTDOWN(K-1)
+
+t = countdown(3)
+next(t) 
+
+yield except the last one 
+def prefixes(s):
+    if s:
+        yield from prefixes(s[:-1])
+        yield s 
+
+def substring(s):
+    if s:
+        yield from prefixes(s)
+        yield from substring(s[1:])
+
+prefixes('both')
+
+list(prefixes('both'))

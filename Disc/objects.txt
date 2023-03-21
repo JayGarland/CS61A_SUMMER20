@@ -1,0 +1,11 @@
+objects represents information
+they consist of data and behavior, bundled together to create abstractions,
+objects can represent things , but also properties, interactions, & precesses
+a type of object is called a class, classes are first-class values in python
+object-oriented programming
+ a metaphor for organizing large programs
+ special syntax that can improve the composition of programs
+in python , every value is an object
+all objects have attributes
+a lot of data manipulation happens through object methods
+functions do one thing; objects do many related things

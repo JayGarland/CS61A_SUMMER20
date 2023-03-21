@@ -1,0 +1,6 @@
+the value of an expression can change because of changes in names or objects
+
+name change and Object mutation 
+
+an immutable sequence may still change if it contains a mutable value as an element
+

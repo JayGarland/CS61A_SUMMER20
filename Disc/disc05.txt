@@ -1,0 +1,40 @@
+label(t)
+ every branches and leaf node or location in the tree
+
+ evaluates to the label of the entire tree, this is simply using a selector to get the label, which is not violating any abstraction barriers
+t[0]
+    the root node 
+
+this expression evaluates to the label of the entire tree, it makes use of the fact that trees are implemented using lists, and violates the abstraction barrier, an equivalent expression is label(t)
+label(branches(t)[0])
+    the root node of branches
+
+the label of the first branch of t, not violation to index into branches(t)
+label(branches(t))
+    all the nodes of a branch
+    first branch of tree, it is a violation of the abstraction barrier as it assumesthat label gets the first element of a list
+
+    treating a non tree list as a tree is an abstraction violation since if label or branches change it no longer works
+
+is leaf(t[1:][1])
+slicing t, although this works because this is technically what branches(t) returns, this is an abstraction violation because we cannot assume the implementation of branches
+
+indexing into the list of branches, which is not an abstraction violation 
+
+[label(b) for branch in branches(t)]
+containing the labels of the branches, 
+
+branches(tree(2, tree(t, [])))[0]
+branches(tree(2, [t]))[0]
+
+
+lists and dictionaries are mutable
+numeric types, tuples, and strings, are immutable
+
+methods
+
+append(el) adds el to the end of the list, and returns None
+ extend(lst) extends the list by concatenating it with lst, returns None 
+ insert(i, el): insert el at index i (does not replace element but adds a new one), and returns None
+ remove(el): removes the first occurrence of el in list, otherwise errors, and returns NOne 
+ pop(i): removes and returns the element at index i 

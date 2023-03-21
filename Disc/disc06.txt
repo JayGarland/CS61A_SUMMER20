@@ -1,0 +1,20 @@
+access names in parent frames, but not able to modify 
+nonlocal canbe to modify a binding in a parent frame
+
+def stepper(num):
+    def step():
+        nonlocal num 
+        num += 1
+        return num 
+    return step
+
+each returned step function keeps its own state 
+
+nonlocal useful for maintaining state across different calls to the same function 
+
+two important caveats with nonlocal names:
+    Global names: can not be moddified using the nonlocal keyword 
+    Names in the current frame: can not be overridden using the nonlocal keyword this means we cannot have both a local and nonlocal binding with the same name in a single frame 
+
+nonlocal lets you modify bindings in parent frames, we call functions that use it mutable functions 
+

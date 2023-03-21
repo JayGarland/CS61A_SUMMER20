@@ -1,0 +1,7 @@
+first example in the course of an object changing state
+the same object can change in value throughout the course of comutation
+
+All names that refer to the same object are affected by a mutation
+
+only objects of mutable types can change : lists & dictionaries
+
